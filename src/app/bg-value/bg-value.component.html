@@ -1,9 +1,9 @@
-<div class="row align-items-center mb-3">
+<div *ngIf="value?.type === 'range'" class="row align-items-center mb-3">
   <div class="col-md-4">
     <label for="{{value?.name}}" class="form-label mb-0">{{value?.name}}:&nbsp;</label>
     <span>{{value?.value}} {{value?.unit}}</span>
   </div>
-  <div class="col-md-8" *ngIf="value?.type === 'range'">
+  <div class="col-md-8">
     <input
       type="range"
       class="form-range"
@@ -14,7 +14,13 @@
       [value]="value?.value"
       (input)="onValueChange(value, $event)" />
   </div>
-  <div class="col-md-8" *ngIf="value?.type === 'number'">
+</div>
+<div *ngIf="value?.type === 'number'" class="row align-items-center mb-3">
+  <div class="col-md-4">
+    <label for="{{value?.name}}" class="form-label mb-0">{{value?.name}}:&nbsp;</label>
+    <span>{{value?.value}} {{value?.unit}}</span>
+  </div>
+  <div class="col-md-8">
     <input
       type="number"
       class="form-number w-100"
@@ -26,3 +32,18 @@
       (input)="onValueChange(value, $event)" />
   </div>
 </div>
+<span
+  *ngIf="value?.type === 'option'"
+  class="d-inline-flex flex-column  justify-content-center align-items-center border border-secondary me-3 mb-3 p-2" style="width: 150px; height: 150px;">
+  <img [src]="value?.image_url" width="100" class="mb-2">
+  <div class="form-check">
+    <input
+      class="form-check-input me-1"
+      type="radio"
+      name="optionGroup"
+    >
+    <label class="form-check-label">
+      {{ value?.name }}
+    </label>
+  </div>
+</span>

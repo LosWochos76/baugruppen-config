@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Linearführung",
+    "description": "Beschreibung für Linearführung",
+    "image_url": "https://www.lehrerfreund.de/medien/tec_artikel_bilder/3d-cad-32.png",
+    "steps": [
+      {
+        "name": "Welle",
+        "description": "Konfiguration der Welle",
+        "image_url": "https://www.thh-drehteile.de/cms/sites/default/files/styles/portfolio_view/public/Welle_Ausfallmuster.jpg",
+        "values": [
+          { "name": "Länge", "type": "range", "step_size": 1, "value": 50, "unit": "mm", "enabled": true, "minValue": 1, "maxValue": 100 },
+          { "name": "Durchmesser", "type": "range", "step_size": 1, "value": 5, "unit": "mm", "enabled": true, "minValue": 1, "maxValue": 10 },
+          { "name": "Anzahl", "type": "number", "step_size": 1, "value": 1, "unit": "Stück", "enabled": true, "minValue": 1, "maxValue": 4 }
+        ]
+      },
+      {
+        "name": "Lager",
+        "description": "Konfiguration des Lagers",
+        "image_url": "https://www.toptools24.de/media/image/product/154884/lg/ent-00124-kugellager-d-19-mm-d-8-mm-h-6-mm.webp",
+        "values": [
+          { "name": "Innendurchmesser", "type": "range", "step_size": 1, "value": 50, "unit": "mm", "enabled": true, "minValue": 1, "maxValue": 100 },
+          { "name": "Außendurchmesser", "type": "range", "step_size": 1, "value": 5, "unit": "mm", "enabled": true, "minValue": 1, "maxValue": 10 },
+          { "name": "Anzahl", "type": "number", "step_size": 1, "value": 1, "unit": "Stück", "enabled": true, "minValue": 1, "maxValue": 4 }
+        ]
+      },
+      {
+        "name": "Halterung",
+        "description": "Konfiguration der Halterungen",
+        "values": [
+          { "name": "Variante A", "type": "option", "image_url": "https://i.ebayimg.com/images/g/IRgAAOSwIYJkDvJA/s-l1600.webp" },
+          { "name": "Variante B", "type": "option", "image_url": "https://i.ebayimg.com/images/g/IRgAAOSwIYJkDvJA/s-l1600.webp" },
+          { "name": "Variante C", "type": "option", "image_url": "https://i.ebayimg.com/images/g/IRgAAOSwIYJkDvJA/s-l1600.webp" },
+          { "name": "Variante D", "type": "option", "image_url": "https://i.ebayimg.com/images/g/IRgAAOSwIYJkDvJA/s-l1600.webp" },
+          { "name": "Innendurchmesser", "type": "range", "step_size": 1, "value": 50, "unit": "mm", "enabled": true, "minValue": 1, "maxValue": 100 },
+          { "name": "Anzahl", "type": "number", "step_size": 1, "value": 1, "unit": "Stück", "enabled": true, "minValue": 1, "maxValue": 100 }
+        ]
+      }
+    ]
+  }
+]

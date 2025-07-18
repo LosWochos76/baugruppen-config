@@ -7,6 +7,8 @@ import { BgSelectComponent } from './bg-select/bg-select.component';
 import { BgConfigComponent } from './bg-config/bg-config.component';
 import { BgValueComponent } from './bg-value/bg-value.component';
 import { BgEditComponent } from './bg-edit/bg-edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BgSummaryComponent } from './bg-summary/bg-summary.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { BgEditComponent } from './bg-edit/bg-edit.component';
     BgSelectComponent,
     BgConfigComponent,
     BgValueComponent,
-    BgEditComponent
+    BgEditComponent,
+    BgSummaryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ export class BgConfigComponent implements OnInit {
   private baugruppe_id: string = '';
   public baugruppe: Baugruppe | undefined;
   public current_step: number = 0;
+  public max_steps: number = 0;
   public step: Step | undefined;
 
   constructor(
@@ -26,12 +27,18 @@ export class BgConfigComponent implements OnInit {
     this.baugruppe_id = this.route.snapshot.paramMap.get('id')!;
     this.baugruppe = this.service.getById(this.baugruppe_id);
     this.step = this.baugruppe?.getStep(this.current_step);
+    this.max_steps = this.baugruppe?.steps.length!;
 
-    console.log(this.step?.image_url);
+    this.service.changed.subscribe(() => {
+      this.current_step = 0;
+      this.max_steps = this.baugruppe?.steps.length!;
+      this.baugruppe = this.service.getById(this.baugruppe_id);
+      this.step = this.baugruppe?.getStep(this.current_step);
+    });
   }
 
   nextStep(): void {
-    if (this.current_step === this.baugruppe?.steps.length! - 1)
+    if (this.current_step >= this.max_steps)
       return;
 
     this.current_step++;

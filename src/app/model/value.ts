@@ -8,5 +8,6 @@ export class Value {
         public enabled: boolean,
         public minValue?: number,
         public maxValue?: number,
+        public image_url?: string
     ) {}
 }

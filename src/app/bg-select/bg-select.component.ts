@@ -17,5 +17,8 @@ export class BgSelectComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.service.getAll();
+    this.service.changed.subscribe(() => {
+      this.data = this.service.getAll();
+    });
   }
 }

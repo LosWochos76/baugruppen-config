@@ -1,19 +1,32 @@
-<h1> {{ baugruppe?.name }} - Schritt {{ current_step + 1 }} - {{ step?.name }}</h1>
+<h1 *ngIf="current_step >= 0 && current_step < max_steps"> {{ baugruppe?.name }} - Schritt {{ current_step + 1 }} - {{ step?.name }}</h1>
+<h1 *ngIf="current_step == max_steps"> {{ baugruppe?.name }} - Schritt {{ current_step + 1 }} - Zusammenfassung</h1>
 
 <div class="progress">
-  <div class="progress-bar w-75" role="progressbar"
-  [attr.aria-valuemin]="0"
-  [attr.aria-valuenow]="current_step"
-  [attr.aria-valuemax]="baugruppe?.steps?.length"></div>
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [style.width.%]="(current_step / max_steps) * 100"
+    [attr.aria-valuemin]="0"
+    [attr.aria-valuenow]="current_step"
+    [attr.aria-valuemax]="max_steps"
+  >
+    {{ (current_step / max_steps * 100) | number : '1.0-0' }} %
+  </div>
 </div>
 
 <br>
 
-<img src="{{ step?.image_url }}" class="img-fluid" width="200">
+<img *ngIf="step?.image_url" src="{{ step?.image_url }}" class="img-fluid" width="200">
 
-<form>
+<form *ngIf="current_step >= 0 && current_step < max_steps">
   <app-bg-value *ngFor="let v of step?.values" [value]="v"></app-bg-value>
 </form>
 
+<app-bg-summary *ngIf="current_step === max_steps"
+  [baugruppe]="baugruppe"></app-bg-summary>
+
 <button type="button" class="btn btn-primary" [disabled]="current_step === 0" (click)="lastStep()">Zurück</button>&nbsp;
-<button type="button" class="btn btn-primary" (click)="nextStep()">Weiter</button>
+
+<button *ngIf="current_step >= 0 && current_step < max_steps" type="button" class="btn btn-primary" (click)="nextStep()">Weiter</button>
+
+<button *ngIf="current_step == max_steps" type="button" class="btn btn-primary" (click)="nextStep()">Bestellen</button>
