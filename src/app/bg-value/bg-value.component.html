@@ -14,4 +14,15 @@
       [value]="value?.value"
       (input)="onValueChange(value, $event)" />
   </div>
+  <div class="col-md-8" *ngIf="value?.type === 'number'">
+    <input
+      type="number"
+      class="form-number w-100"
+      name="{{value?.name}}"
+      [min]="value?.minValue"
+      [max]="value?.maxValue"
+      [step]="value?.step_size"
+      [value]="value?.value"
+      (input)="onValueChange(value, $event)" />
+  </div>
 </div>

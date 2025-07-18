@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BgSelectComponent } from './bg-select/bg-select.component';
 import { BgConfigComponent } from './bg-config/bg-config.component';
 import { BgValueComponent } from './bg-value/bg-value.component';
+import { BgEditComponent } from './bg-edit/bg-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BgSelectComponent,
     BgConfigComponent,
-    BgValueComponent
+    BgValueComponent,
+    BgEditComponent
   ],
   imports: [
     BrowserModule,

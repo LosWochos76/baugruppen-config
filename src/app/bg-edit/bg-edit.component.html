@@ -1,0 +1,10 @@
+<div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Baugruppen</label>
+    <textarea class="form-control" id="bg-config" rows="15" #bgConfig>{{ json }}</textarea>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="onSave(bgConfig.value)">Speichern</button>
+
+<div *ngIf="parse_error" class="alert alert-danger" role="alert">
+  {{ parse_error }}
+</div>
