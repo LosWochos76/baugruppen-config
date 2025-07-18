@@ -12,7 +12,6 @@ export class BgValueComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.value?.type);
   }
 
   onValueChange(value: Value | undefined, event: any): void {

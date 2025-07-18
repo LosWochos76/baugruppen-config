@@ -1,7 +1,17 @@
-<div class="mb-3">
-  <label for="{{value?.name}}" class="form-label">{{value?.name}}:&nbsp;</label>
-  <span>{{value?.value}}&nbsp;{{value?.unit}}</span> 
-  <span *ngIf="value?.type === 'range'">
-    <input type="range" class="form-range" name="{{value?.name}}" min="{{value?.minValue}}" max="{{value?.maxValue}}" step="{{value?.step_size}}" value="{{value?.value}}" (input)="onValueChange(value, $event)" />1
-  </span>
+<div class="row align-items-center mb-3">
+  <div class="col-md-4">
+    <label for="{{value?.name}}" class="form-label mb-0">{{value?.name}}:&nbsp;</label>
+    <span>{{value?.value}} {{value?.unit}}</span>
+  </div>
+  <div class="col-md-8" *ngIf="value?.type === 'range'">
+    <input
+      type="range"
+      class="form-range"
+      name="{{value?.name}}"
+      [min]="value?.minValue"
+      [max]="value?.maxValue"
+      [step]="value?.step_size"
+      [value]="value?.value"
+      (input)="onValueChange(value, $event)" />
+  </div>
 </div>

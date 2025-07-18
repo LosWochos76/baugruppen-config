@@ -22,17 +22,17 @@ export class BgRepositoryService {
             'Welle', 
             'Konfiguration der Welle', 
             'https://www.thh-drehteile.de/cms/sites/default/files/styles/portfolio_view/public/Welle_Ausfallmuster.jpg', [
-              new Value('Länge', 'range', 1, 100, 'mm', 50, 200),
-              new Value('Durchmesser', 'range', 5, 10, 'mm', 5, 20),
-              new Value('Anzahl', 'number', 1, 1, 'Stück', 1, 4)
+              new Value('Länge', 'range', 1, 100, 'mm', true, 50, 200),
+              new Value('Durchmesser', 'range', 5, 10, 'mm', true, 5, 20),
+              new Value('Anzahl', 'number', 1, 1, 'Stück', true, 1, 4)
             ]),
           new Step(
             'Lager', 
             'Konfiguration des Lagers',
             'https://www.toptools24.de/media/image/product/154884/lg/ent-00124-kugellager-d-19-mm-d-8-mm-h-6-mm.webp', [
-              new Value('Innendurchmesser', 'range', 1, 100, 'mm', 50, 200),
-              new Value('Außendurchmesser', 'range', 1, 10, 'mm', 5, 20),
-              new Value('Anzahl', 'number', 1, 1, 'Stück', 1, 4)
+              new Value('Innendurchmesser', 'range', 1, 100, 'mm', true, 50, 200),
+              new Value('Außendurchmesser', 'range', 1, 10, 'mm', true, 5, 20),
+              new Value('Anzahl', 'number', 1, 1, 'Stück', true, 1, 4)
             ])
         ]
     ));

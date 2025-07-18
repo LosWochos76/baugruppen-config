@@ -4,7 +4,8 @@ export class Value {
         public type: string,
         public step_size: number,
         public value: any,
-        public unit?: string,
+        public unit: string,
+        public enaböled: boolean,
         public minValue?: number,
         public maxValue?: number,
     ) {}
