@@ -1,0 +1,16 @@
+<h1>Schritt {{ current_step + 1 }} - {{ baugruppe?.name }} - {{ step?.name }}</h1>
+
+<div class="progress">
+  <div class="progress-bar w-75" role="progressbar"
+  [attr.aria-valuemin]="0"
+  [attr.aria-valuenow]="current_step"
+  [attr.aria-valuemax]="baugruppe?.steps?.length"></div>
+</div>
+
+<br>
+
+<img src="{{ step?.image_url }}" class="img-fluid" width="200">
+
+<form>
+  <app-bg-value *ngFor="let v of step?.values" [value]="v"></app-bg-value>
+</form>

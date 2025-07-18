@@ -1,0 +1,8 @@
+<div *ngFor="let item of data" class="card" style="width: 18rem;">
+  <img [src]="item.image_url" class="card-img-top" alt="{{ item.name }}" width="200">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{ item.description }}</p>
+    <a [routerLink]="['/bg-config', item.id]" class="btn btn-primary">Starte Konfiguration</a>
+  </div>
+</div>
