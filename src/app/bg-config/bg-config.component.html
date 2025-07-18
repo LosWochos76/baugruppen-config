@@ -1,4 +1,4 @@
-<h1>Schritt {{ current_step + 1 }} - {{ baugruppe?.name }} - {{ step?.name }}</h1>
+<h1> {{ baugruppe?.name }} - Schritt {{ current_step + 1 }} - {{ step?.name }}</h1>
 
 <div class="progress">
   <div class="progress-bar w-75" role="progressbar"
@@ -14,3 +14,6 @@
 <form>
   <app-bg-value *ngFor="let v of step?.values" [value]="v"></app-bg-value>
 </form>
+
+<button type="button" class="btn btn-primary" [disabled]="current_step === 0" (click)="lastStep()">Zurück</button>&nbsp;
+<button type="button" class="btn btn-primary" (click)="nextStep()">Weiter</button>

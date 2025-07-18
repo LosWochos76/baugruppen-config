@@ -30,5 +30,19 @@ export class BgConfigComponent implements OnInit {
     console.log(this.step?.image_url);
   }
 
+  nextStep(): void {
+    if (this.current_step === this.baugruppe?.steps.length! - 1)
+      return;
 
+    this.current_step++;
+    this.step = this.baugruppe?.getStep(this.current_step);
+  }
+
+  lastStep(): void {
+    if (this.current_step === 0)
+      return;
+
+    this.current_step--;
+    this.step = this.baugruppe?.getStep(this.current_step);
+  }
 }
