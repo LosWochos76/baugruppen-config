@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Baugruppe } from '../model/baugruppe';
-import { Step } from '../model/Step';
+import { Step } from '../model/step';
 import { Value } from '../model/value';
 
 @Injectable({
@@ -63,7 +63,9 @@ export class BgRepositoryService {
               value.enabled,
               value.minValue,
               value.maxValue,
-              value.image_url
+              value.image_url,
+              value.group_name,
+              value.on_change
             ))
           ))
         );

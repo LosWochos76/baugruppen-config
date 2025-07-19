@@ -12,7 +12,6 @@ RUN npm ci
 # Quellcode kopieren und Production-Build erzeugen
 COPY . .
 
-# Build mit dem im angular.json hinterlegten outputPath
 RUN npm run build -- --configuration=production
 
 
@@ -24,8 +23,11 @@ FROM nginx:1.25-alpine
 # Altes html-Verzeichnis leeren
 RUN rm -rf /usr/share/nginx/html/*
 
-# Nur den Inhalt von dist/baugruppen-config kopieren
+# Angular-Build kopieren
 COPY --from=builder /app/dist/baugruppen-config/ /usr/share/nginx/html/
+
+# nginx-Konfiguration hinzufügen
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 

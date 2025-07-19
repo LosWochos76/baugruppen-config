@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/bg-select', pathMatch: 'full' },
   { path: 'bg-select', component: BgSelectComponent },
   { path: 'bg-edit', component: BgEditComponent },
-  { path: 'bg-config/:id', component: BgConfigComponent },
+  { path: 'bg-config/:id/:current_step', component: BgConfigComponent },
   { path: '**', redirectTo: '/baugruppen' }
 ];
 

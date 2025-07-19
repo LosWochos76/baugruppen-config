@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BgRepositoryService } from '../services/bg-repository.service';
 import { Baugruppe } from '../model/baugruppe';
-import { ActivatedRoute } from '@angular/router';
-import { Step } from '../model/Step';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Step } from '../model/step';
 
 @Component({
   selector: 'app-bg-config',
@@ -18,38 +18,44 @@ export class BgConfigComponent implements OnInit {
 
   constructor(
     private service: BgRepositoryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.service = service;
   }
 
   ngOnInit(): void {
-    this.baugruppe_id = this.route.snapshot.paramMap.get('id')!;
-    this.baugruppe = this.service.getById(this.baugruppe_id);
-    this.step = this.baugruppe?.getStep(this.current_step);
-    this.max_steps = this.baugruppe?.steps.length!;
+    this.route.paramMap.subscribe(params => {
+      this.baugruppe_id = this.route.snapshot.paramMap.get('id')!;
+      const stepParam = this.route.snapshot.paramMap.get('current_step');
+      this.current_step = parseInt(stepParam ?? '0', 10);
+      this.readData();
+    });
 
-    this.service.changed.subscribe(() => {
-      this.current_step = 0;
-      this.max_steps = this.baugruppe?.steps.length!;
+    this.service.changed.subscribe(() => { this.readData(); });
+  }
+
+  readData() {
       this.baugruppe = this.service.getById(this.baugruppe_id);
       this.step = this.baugruppe?.getStep(this.current_step);
-    });
+      this.max_steps = this.baugruppe?.steps.length!;
   }
 
   nextStep(): void {
     if (this.current_step >= this.max_steps)
       return;
 
-    this.current_step++;
-    this.step = this.baugruppe?.getStep(this.current_step);
+    this.router.navigate(['/bg-config', 
+      this.baugruppe_id, 
+      this.current_step + 1]);
   }
 
   lastStep(): void {
     if (this.current_step === 0)
       return;
 
-    this.current_step--;
-    this.step = this.baugruppe?.getStep(this.current_step);
+    this.router.navigate(['/bg-config', 
+      this.baugruppe_id, 
+      this.current_step - 1]);
   }
 }

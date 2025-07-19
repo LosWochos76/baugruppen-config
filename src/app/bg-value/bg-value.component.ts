@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Value } from '../model/value';
+import { Step } from '../model/step';
+import { Baugruppe } from '../model/baugruppe';
 
 @Component({
   selector: 'app-bg-value',
@@ -7,7 +9,9 @@ import { Value } from '../model/value';
   styleUrls: ['./bg-value.component.css']
 })
 export class BgValueComponent implements OnInit {
-  @Input() value?: Value;
+  @Input() value: Value | undefined;
+  @Input() step: Step | undefined;
+  @Input() baugruppe: Baugruppe | undefined;
 
   constructor() { }
 
@@ -15,7 +19,10 @@ export class BgValueComponent implements OnInit {
   }
 
   onValueChange(value: Value | undefined, event: any): void {
-    if (this.value)
-      this.value.value = event.target.value;
+    this.baugruppe?.setNumericValue(this.step, value, event.target.value);
+  }
+
+  onOptionSet(value: Value | undefined, wert: any): void {
+    this.baugruppe?.setOptionValue(this.step, value, wert);
   }
 }

@@ -19,7 +19,8 @@
 <img *ngIf="step?.image_url" src="{{ step?.image_url }}" class="img-fluid" width="200">
 
 <form *ngIf="current_step >= 0 && current_step < max_steps">
-  <app-bg-value *ngFor="let v of step?.values" [value]="v"></app-bg-value>
+  <app-bg-value *ngFor="let v of step?.values" 
+    [value]="v" [step]="step" [baugruppe]="baugruppe"></app-bg-value>
 </form>
 
 <app-bg-summary *ngIf="current_step === max_steps"

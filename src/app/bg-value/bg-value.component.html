@@ -12,6 +12,7 @@
       [max]="value?.maxValue"
       [step]="value?.step_size"
       [value]="value?.value"
+      [disabled]="!value?.enabled"
       (input)="onValueChange(value, $event)" />
   </div>
 </div>
@@ -29,6 +30,7 @@
       [max]="value?.maxValue"
       [step]="value?.step_size"
       [value]="value?.value"
+      [disabled]="!value?.enabled"
       (input)="onValueChange(value, $event)" />
   </div>
 </div>
@@ -40,7 +42,10 @@
     <input
       class="form-check-input me-1"
       type="radio"
-      name="optionGroup"
+      [name]="value?.group_name"
+      [checked]="value?.value === 'checked'"
+      [disabled]="!value?.enabled"
+      (change)="onOptionSet(value, 'checked')"
     >
     <label class="form-check-label">
       {{ value?.name }}
