@@ -13,7 +13,7 @@
           { "name": "Länge", "type": "range", "step_size": 1, "value": 100, "unit": "mm", "enabled": true, "minValue": 80, "maxValue": 500 },
           { "name": "Durchmesser", "type": "range", "step_size": 1, "value":  20, "unit": "mm", "enabled": true, "minValue": 10, "maxValue": 50, "on_change":"let v1 = baugruppe.getStep(1).getValue('Innendurchmesser');v1.maxValue=new_value+50;v1.value=new_value;let v2=baugruppe.getStep(1).getValue('Außendurchmesser');v2.value=new_value+10;let v3 = baugruppe.getStep(2).getValue('Innendurchmesser');v3.value=new_value+10;" },
           { "name": "Anzahl", "type": "range", "step_size": 1, "value": 1, "unit": "Stück", "enabled": true, "minValue": 1, "maxValue": 4, 
-            "on_change": "let v1 = baugruppe.getStep(1).getValue('Anzahl');v1.maxValue=4*new_value;v1.value=2*new_value;v1.step_size=new_value;let v2=baugruppe.getStep(2).getValue('Anzahl');v2.maxValue=4*new_value;v2.value=2*new_value;let v3 = baugruppe.getStep(2).getValue('Anzahl);v3.value=new_value*2;" }
+            "on_change": "let v1 = baugruppe.getStep(1).getValue('Anzahl');v1.maxValue=4*new_value;v1.value=2*new_value;v1.step_size=new_value;let v2=baugruppe.getStep(2).getValue('Anzahl');v2.maxValue=4*new_value;v2.value=2*new_value;let v3=baugruppe.getStep(2).getValue('Anzahl');v3.value=new_value*2;" }
         ]
       },
       {
